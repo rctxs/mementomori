@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-left: 1%;
+  padding-right: 1%;
+ 
+}
+
+@media (min-width: 65em) { 
+  .app {
+    grid-template-columns: 1fr 5fr;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+.settings-section {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5px
+
+}
+
+@media (min-width: 65em) { 
+  .settings-section {
+    margin-top: 24px;
+    margin-right: 10px;
+  }
+}
+
+.settings-subsection {
+  margin-bottom: 5px;
+  background-color: #b7c0d379;
+  border-radius: 4px;
+  padding: 2px;  
+}
+
+.settings-subsubsection {
+  margin-bottom: 5px;
+}
+
+.settings-flex {
+  display: flex;
+}
+
+.settings-component {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-component>label {
+  margin-bottom: 3px;
+}
+
+.settings-component-part {
+  display: flex;
+}
+
+.settings-component-part>span{
+  margin-right: 4px;
+} 
+
+.year-row-number {
+  display: none;
+}
+
+@media (min-width: 65em) { 
+  .year-row-number {
+    font-size: 13px;
+    width: 22px;
+    display: inline-block; 
+    margin-right: 3px 
+  }
+}
+
+
+.week-circle {
+  height: 6px;
+  width: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #929292;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+@media (min-width: 100em) { 
+  .calendar-part {
+    display: flex;
+  }
+
+  .calendar-part>div {
+    margin-right: 10px;
+  }
+
+}
+
+.year-row-weeks {
+  display: inline-block;
+}
+
+.week-circle-passed {
+  background-color: #000000;
+  border: 2px solid #000;
+}
+
+.week-circle-life-expectancy {
+  border: 2px solid #000;
+}
+
+.week-circle-today  {
+  border: 2px solid cyan;
+}
+
+
