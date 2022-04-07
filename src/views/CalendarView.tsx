@@ -1,6 +1,6 @@
-import React from "react";
+import { observer } from "mobx-react";
 import { Life, LifeYear, LifeWeek } from "../model/Life";
-import WeekCircle from "../ui-components/WeekCircle";
+import WeekCircle from "../components/WeekCircle";
 
 interface CalendarProps {
   today: Date;
@@ -10,7 +10,7 @@ interface CalendarProps {
   handleLifeWeekNrChange(number: number): void;
 }
 
-function Calendar(props: CalendarProps) {
+const CalendarView = observer((props: CalendarProps) => {
   return (
     <div>
       <div>
@@ -20,12 +20,12 @@ function Calendar(props: CalendarProps) {
       <div className="calendar-part">
         <div>
           {props.life.lifeYears
-            .filter((lifeYear) => lifeYear.number < 50)
+            .filter((lifeYear) => lifeYear.yearNumber < 50)
             .map((lifeYear) => {
               let isWithinLifeExpectancy =
-                lifeYear.number < props.lifeExpectancy;
+                lifeYear.yearNumber < props.lifeExpectancy;
               return (
-                <CalendarYear
+                <CalendarYearView
                   today={props.today}
                   lifeYear={lifeYear}
                   isWithinLifeExpectancy={isWithinLifeExpectancy}
@@ -37,12 +37,12 @@ function Calendar(props: CalendarProps) {
         </div>
         <div>
           {props.life.lifeYears
-            .filter((lifeYear) => lifeYear.number >= 50)
+            .filter((lifeYear) => lifeYear.yearNumber >= 50)
             .map((lifeYear) => {
               let isWithinLifeExpectancy =
-                lifeYear.number < props.lifeExpectancy;
+                lifeYear.yearNumber < props.lifeExpectancy;
               return (
-                <CalendarYear
+                <CalendarYearView
                   today={props.today}
                   lifeYear={lifeYear}
                   isWithinLifeExpectancy={isWithinLifeExpectancy}
@@ -55,7 +55,7 @@ function Calendar(props: CalendarProps) {
       </div>
     </div>
   );
-}
+});
 
 interface CalendarYearProps {
   today: Date;
@@ -65,12 +65,12 @@ interface CalendarYearProps {
   handleLifeWeekNrChange(number: number): void;
 }
 
-function CalendarYear(props: CalendarYearProps) {
+const CalendarYearView = observer((props: CalendarYearProps) => {
   return (
-    <div key={"life-year-".concat(props.lifeYear.number.toString())}>
-      <span className="year-row-number">{props.lifeYear.number + 1}</span>
+    <div key={"life-year-".concat(props.lifeYear.yearNumber.toString())}>
+      <span className="year-row-number">{props.lifeYear.yearNumber + 1}</span>
       <div className="year-row-weeks">
-        {props.lifeYear.weeks.map((lifeWeek) => {
+        {props.lifeYear.lifeWeeks.map((lifeWeek) => {
           let weekNumber = lifeWeek.number;
           let isTodayWithinWeek = lifeWeek.isDateWithin(props.today);
           let isWithinPassedWeeks = weekNumber <= props.currentLifeWeek.number;
@@ -87,6 +87,6 @@ function CalendarYear(props: CalendarYearProps) {
       </div>
     </div>
   );
-}
+});
 
-export default Calendar;
+export default CalendarView;

@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./tests/reportWebVitals";
 
-ReactDOM.render(
-  <App initialBirthday={new Date("2000-01-01")} initialLifeExpectancy={80} />,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
