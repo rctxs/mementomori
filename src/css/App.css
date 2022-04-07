@@ -14,7 +14,7 @@ body {
   padding-right: 1%;
 }
 
-@media (min-width: 65em) {
+@media (min-width: 70em) {
   .app {
     grid-template-columns: 1fr 5fr;
     padding-left: 2%;
@@ -28,7 +28,7 @@ body {
   margin-bottom: 5px;
 }
 
-@media (min-width: 65em) {
+@media (min-width: 70em) {
   .settings-section {
     margin-top: 24px;
     margin-right: 10px;
@@ -74,12 +74,22 @@ body {
   display: none;
 }
 
-@media (min-width: 65em) {
+@media (min-width: 70em) {
   .year-row-number {
     font-size: 13px;
     width: 22px;
     display: inline-block;
     margin-right: 3px;
+  }
+}
+
+@media (min-width: 110em) {
+  .calendar-part {
+    display: flex;
+  }
+
+  .calendar-part > div {
+    margin-right: 10px;
   }
 }
 
@@ -91,16 +101,7 @@ body {
   border: 2px solid #929292;
   display: inline-block;
   cursor: pointer;
-}
-
-@media (min-width: 100em) {
-  .calendar-part {
-    display: flex;
-  }
-
-  .calendar-part > div {
-    margin-right: 10px;
-  }
+  margin-right: 2px;
 }
 
 .year-row-weeks {
@@ -108,7 +109,7 @@ body {
 }
 
 .week-circle-passed {
-  background-color: #000000;
+  background-color: #00000088;
   border: 2px solid #000;
 }
 
